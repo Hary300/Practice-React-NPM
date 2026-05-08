@@ -29,11 +29,11 @@ export default function ShowHideText() {
   const [show, setShow] = useState(true);
 
   if (show) {
-    text = 'Hello React';
-    buttonText = 'hide';
+    text = 'Hello There';
+    buttonText = 'Hide';
   } else {
     text = '';
-    buttonText = 'show';
+    buttonText = 'Show';
   }
   return (
     <div className='component-container'>

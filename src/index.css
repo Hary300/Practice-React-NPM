@@ -80,6 +80,7 @@ ul {
   border: 0;
   box-shadow: 0 0 2px black;
   transition: 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 .counter-buttons-container .button:active {
@@ -110,4 +111,8 @@ ul {
   cursor: pointer;
   box-shadow: 0 0 2px black;
   transition: 0.1s ease-in-out;
+}
+
+.show-hide-button:active {
+  box-shadow: none;
 }
