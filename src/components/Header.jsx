@@ -1,7 +1,7 @@
 function Header({ name = 'Hary' }) {
   return (
     <>
-      <h1>Belajar React bareng {name} 🚀</h1>
+      <h1>Belajar React Bareng {name}</h1>
     </>
   );
 }

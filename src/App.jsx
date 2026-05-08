@@ -1,13 +1,19 @@
 import Header from './components/Header';
-import ButtonLike from './components/ButtonLike';
+import LikeDislikeButton from './components/LikeDislikeButton';
 import FruitList from './components/FruitList';
+import Counter from './components/Counter';
+import ShowHideText from './components/ShowHideText';
 
 function App() {
   return (
     <>
       <Header />
-      <ButtonLike />
-      <FruitList />
+      <div className='components-container'>
+        <LikeDislikeButton />
+        <FruitList />
+        <Counter />
+        <ShowHideText />
+      </div>
     </>
   );
 }
