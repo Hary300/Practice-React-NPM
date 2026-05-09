@@ -116,3 +116,53 @@ ul {
 .show-hide-button:active {
   box-shadow: none;
 }
+
+/* search filter */
+
+.search-container {
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 0 2px black;
+}
+
+.search-button {
+  padding: 6px;
+  border: 0;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+  box-shadow: 0 0 2px black;
+}
+
+.search-button:active {
+  box-shadow: none;
+}
+
+/* Fruit Search */
+
+.search-input {
+  padding: 10px;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 2px black;
+}
+
+.fruits-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.fruit-card {
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 2px black;
+  transition: 0.1s ease-in-out;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -3,6 +3,7 @@ import LikeDislikeButton from './components/LikeDislikeButton';
 import FruitList from './components/FruitList';
 import Counter from './components/Counter';
 import ShowHideText from './components/ShowHideText';
+import SearchFilter from './components/SearchFilter';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <FruitList />
         <Counter />
         <ShowHideText />
+        <SearchFilter />
       </div>
     </>
   );
