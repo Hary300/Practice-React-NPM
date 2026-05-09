@@ -6,7 +6,7 @@ function FruitList() {
       <p>Instruction: Put Array Element Into Tag &lt;li&gt;</p>
       <ul>
         {fruits.map((fruit) => (
-          <li>{fruit}</li>
+          <li key={fruit}>{fruit}</li>
         ))}
       </ul>
     </div>

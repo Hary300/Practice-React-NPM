@@ -4,6 +4,7 @@ import FruitList from './components/FruitList';
 import Counter from './components/Counter';
 import ShowHideText from './components/ShowHideText';
 import SearchFilter from './components/SearchFilter';
+import TodoList from './components/TodoList';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Counter />
         <ShowHideText />
         <SearchFilter />
+        <TodoList />
       </div>
     </>
   );

@@ -55,7 +55,8 @@ h2 {
 }
 
 /* Fruit list */
-ul {
+ul,
+ol {
   padding-left: 20px;
 }
 
