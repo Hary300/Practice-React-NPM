@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 export default function TodoList() {
   const [editIndex, setEditIndex] = useState(null);
   const [warning, setWarning] = useState('');
   const [input, setInput] = useState('');
-  const [todos, setTodos] = useState(['Mulai belajar']);
+  const [todos, setTodos] = useState(() => {
+    const saved = localStorage.getItem('todos');
+    return saved ? JSON.parse(saved) : [{ text: 'Mulai belajar', done: false }];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div className='component-container'>
@@ -14,6 +21,7 @@ export default function TodoList() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
+        {/* update and add button */}
         <button
           className='todo-input-button'
           onClick={() => {
@@ -21,7 +29,7 @@ export default function TodoList() {
               setTodos((prev) =>
                 prev.map((todo, index) => {
                   if (index === editIndex) {
-                    return input;
+                    return { ...todo, text: input };
                   }
                   return todo;
                 })
@@ -30,7 +38,7 @@ export default function TodoList() {
               setInput('');
             } else {
               if (input) {
-                setTodos((prev) => [...prev, input]);
+                setTodos((prev) => [...prev, { text: input, done: false }]);
                 setInput('');
                 setWarning('');
               } else {
@@ -46,8 +54,30 @@ export default function TodoList() {
       <ol>
         {todos.map((todo, index) => {
           return (
-            <li className='todo-item' key={index}>
-              {todo}
+            <li
+              className='todo-item'
+              key={index}
+              style={{ textDecoration: todo.done ? 'line-through' : 'none' }}
+            >
+              {todo.text}
+
+              {/* checkbox mark done */}
+              <input
+                type='checkbox'
+                checked={todo.done}
+                onChange={() =>
+                  setTodos((prev) =>
+                    prev.map((todo, indexTodo) => {
+                      if (indexTodo === index) {
+                        return { ...todo, done: !todo.done };
+                      }
+                      return todo;
+                    })
+                  )
+                }
+              />
+
+              {/*  delete button */}
               <button
                 className='button delete-button'
                 onClick={() =>
@@ -58,10 +88,12 @@ export default function TodoList() {
               >
                 Delete
               </button>
+
+              {/* edit button */}
               <button
                 className='button edit-button'
                 onClick={() => {
-                  setInput(todo);
+                  setInput(todo.text);
                   setEditIndex(index);
                 }}
               >
